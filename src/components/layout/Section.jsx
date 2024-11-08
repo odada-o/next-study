@@ -1,16 +1,21 @@
-function Section(props) {
-  console.log(props);
+function Section({ title, desc, children }) {
+  // console.log(props);
+
   // const props = {
   //   title: '섹션1',
   //   desc: '설명1'
+  //   children: <ul></ul>
   // };
+
+  // 객체 분해
+  // const { title, desc, children } = props;
 
   return (
     <section>
       <div className='inner'>
-        <h2>{props.title}</h2>
-        <p>{props.desc}</p>
-        <div>섹션 내용</div>
+        <h2>{title}</h2>
+        <p>{desc}</p>
+        <div>{children}</div>
       </div>
     </section>
   );
