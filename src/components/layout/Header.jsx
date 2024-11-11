@@ -1,12 +1,13 @@
+import { navigationItem } from '@/data/navigation';
 import Nav from './Nav';
+import Nav2 from './Nav2';
 
 function Header() {
-  const navArr = [{ title: 'home' }, { title: 'about' }, { title: 'login' }];
-
   return (
     <header>
       <h1>logo</h1>
-      <Nav nav={navArr} />
+      <Nav nav={navigationItem} />
+      <Nav2 nav={navigationItem} />
     </header>
   );
 }

@@ -1,4 +1,4 @@
-function Section({ title, desc, children }) {
+function Section(props) {
   // console.log(props);
 
   // const props = {
@@ -13,9 +13,9 @@ function Section({ title, desc, children }) {
   return (
     <section>
       <div className='inner'>
-        <h2>{title}</h2>
-        <p>{desc}</p>
-        <div>{children}</div>
+        <h2>{props.title}</h2>
+        <p>{props.desc}</p>
+        <div>{props.children}</div>
       </div>
     </section>
   );
