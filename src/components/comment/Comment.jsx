@@ -15,14 +15,14 @@ const user2 = {
 };
 
 const arrComment = [
-  { cont: '코멘트1', date: '2024.11.11', user: user1 },
+  { cont: '코멘트1 코멘트1코멘트1코멘트1코멘트1코멘트1코멘트1', date: '2024.11.11', user: user1 },
   { cont: '코멘트2', date: '2024.11.12', user: user2 },
   { cont: '코멘트3', date: '2024.11.13', user: user1 },
 ];
 
 const Comment = () => {
   return (
-    <>
+    <div className='flex flex-col gap-10'>
       {arrComment.map((item, index) => (
         <CommentItem
           key={index}
@@ -31,7 +31,7 @@ const Comment = () => {
           user={item.user}
         />
       ))}
-    </>
+    </div>
   );
 };
 
@@ -46,19 +46,31 @@ const CommentItem = ({ cont, date, user }) => {
   // };
 
   return (
-    <div>
+    <CommentItemStyled>
       <UserInfo user={user} />
       <strong>{cont}</strong>
       <span>{date}</span>
-    </div>
+    </CommentItemStyled>
   );
 };
+
+const CommentItemStyled = styled.div`
+  strong {
+    display: block;
+    font-size: 1.2rem;
+    color: red;
+  }
+  span {
+    font-size: 1rem;
+    color: #999;
+  }
+`;
 
 const UserInfo = ({ user }) => {
   // const { user } = props;
   // console.log(props);
   return (
-    <div>
+    <UserInfoStyled>
       <Image
         src={user.avatarUrl}
         alt={user.name}
@@ -66,12 +78,25 @@ const UserInfo = ({ user }) => {
         height={100}
       />
       <UserNameStyled>{user.name}</UserNameStyled>
-    </div>
+    </UserInfoStyled>
   );
 };
 
-const UserNameStyled = styled.strong`
-  color: blue;
+const UserInfoStyled = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  img {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+`;
+const UserNameStyled = styled.em`
+  color: yellow;
+  text-decoration: none;
 `;
 
 export default Comment;
