@@ -1,5 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import React from 'react';
+import styled from 'styled-components';
 
 const user1 = {
   name: 'Neytiri',
@@ -32,8 +35,10 @@ const Comment = () => {
   );
 };
 
-const CommentItem = props => {
-  console.log(props);
+const CommentItem = ({ cont, date, user }) => {
+  // const { cont, date, user } = props;
+
+  // console.log(props);
   // const props = {
   //   cont: '코멘트1',
   //   date: '2024.11.11',
@@ -42,26 +47,31 @@ const CommentItem = props => {
 
   return (
     <div>
-      <UserInfo user={props.user} />
-      <strong>{props.cont}</strong>
-      <span>{props.date}</span>
+      <UserInfo user={user} />
+      <strong>{cont}</strong>
+      <span>{date}</span>
     </div>
   );
 };
 
-const UserInfo = props => {
-  console.log(props);
+const UserInfo = ({ user }) => {
+  // const { user } = props;
+  // console.log(props);
   return (
     <div>
       <Image
-        src={props.user.avatarUrl}
-        alt={props.user.name}
+        src={user.avatarUrl}
+        alt={user.name}
         width='100'
         height={100}
       />
-      <strong>{props.user.name}</strong>
+      <UserNameStyled>{user.name}</UserNameStyled>
     </div>
   );
 };
+
+const UserNameStyled = styled.strong`
+  color: blue;
+`;
 
 export default Comment;
