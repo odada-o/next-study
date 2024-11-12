@@ -8,11 +8,16 @@ export default function Nav2(props) {
   // 배열이름.map((item, index) => (반복코드))
 
   return (
-    <ul>
+    <ul className='flex gap-4'>
       {props.nav.map((item, index) => (
         // item = {title, url}
         <li key={index}>
-          <a href={item.url}>{item.title}</a>
+          <a
+            href={item.url}
+            className='h-16 flex items-center'
+          >
+            {item.title}
+          </a>
         </li>
       ))}
     </ul>
